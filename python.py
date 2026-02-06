@@ -79,11 +79,48 @@ elif opcion == 3:
     print(f"\nSu tasa metabólica basal ajustada a la actividad física es: {calorias_diarias} calorías/día")
 
 elif opcion == 4:
-    print("Opción no implementada.")
+    
+    peso = float(input("Ingrese su peso en kilogramos: "))
+    altura = float(input("Ingrese su altura en metros: "))
+    edad = int(input("Ingrese su edad: "))
+    sexo = int(input("Ingrese su sexo (1 = Hombre, 0 = Mujer): "))
 
+    print("\nNivel de actividad física:")
+    print("1. Sedentario")
+    print("2. Ligero")
+    print("3. Moderado")
+    print("4. Intenso")
+
+    actividad = int(input("Seleccione una opción (1-4): "))
+
+    altura_cm = altura * 100
+
+    if sexo == 1:
+        tmb = 10 * peso + 6.25 * altura_cm - 5 * edad + 5
+    else:
+        tmb = 10 * peso + 6.25 * altura_cm - 5 * edad - 161
+
+    
+    if actividad == 1:
+        factor = 1.2
+    elif actividad == 2:
+        factor = 1.375
+    elif actividad == 3:
+        factor = 1.55
+    elif actividad == 4:
+        factor = 1.725
+    else:
+        factor = 1.2
+
+    calorias_mantenimiento = tmb * factor
+    calorias_adelgazar = calorias_mantenimiento - 500
+
+    print(f"\nCalorías de mantenimiento: {calorias_mantenimiento:.2f} kcal/día")
+    print(f"Calorías recomendadas para adelgazar: {calorias_adelgazar:.2f} kcal/día")
 else:
     print("Opción no válida.")
 
 
     
+
     
