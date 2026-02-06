@@ -28,7 +28,42 @@ elif opcion == 2:
     print("Opción no implementada.")
 
 elif opcion == 3:
-    print("Opción no implementada.")
+    # tasa metabolica basal segun actividad fisica 
+    sexo = input("Ingrese su sexo (h/m): ").lower()
+    peso = float(input("Ingrese su peso en kilogramos: "))
+    altura = float(input("Ingrese su altura en centímetros: "))
+    edad = int(input("Ingrese su edad: "))
+
+    if sexo == "h":
+        tmb = 10 * peso + 6.25 * altura - 5 * edad + 5
+    else:
+        tmb = 10 * peso + 6.25 * altura - 5 * edad - 161
+
+    print("\nNivel de actividad física:")
+    print("1. Sedentario")
+    print("2. Ligero")
+    print("3. Moderado")
+    print("4. Intenso")
+    print("5. Muy intenso")
+
+    actividad = int(input("Seleccione su nivel de actividad: "))
+
+    if actividad == 1:
+        factor = 1.2
+    elif actividad == 2:
+        factor = 1.375
+    elif actividad == 3:
+        factor = 1.55
+    elif actividad == 4:
+        factor = 1.725
+    elif actividad == 5:
+        factor = 1.9
+    else:
+        factor = 1.2
+
+    calorias_diarias = tmb * factor
+
+    print(f"\nSu tasa metabólica basal ajustada a la actividad física es: {calorias_diarias} calorías/día")
 
 elif opcion == 4:
     print("Opción no implementada.")
