@@ -25,7 +25,20 @@ if opcion == 1:
         print("Clasificación: Obesidad")
 
 elif opcion == 2:
-    print("Opción no implementada.")
+    # === PORCENTAJE DE GRASA CORPORAL ===
+    peso = float(input("Ingrese su peso en kilogramos: "))
+    altura = float(input("Ingrese su altura en metros: "))
+    edad = int(input("Ingrese su edad: "))
+    sexo = input("Ingrese su sexo (H/M): ").upper()
+
+    imc = peso / (altura * altura)
+
+    if sexo == "H":
+        grasa = (1.20 * imc) + (0.23 * edad) - 16.2
+    else:
+        grasa = (1.20 * imc) + (0.23 * edad) - 5.4
+
+    print(f"\nSu porcentaje de grasa corporal es: {grasa:.2f}%")
 
 elif opcion == 3:
     # tasa metabolica basal segun actividad fisica 
@@ -70,3 +83,7 @@ elif opcion == 4:
 
 else:
     print("Opción no válida.")
+
+
+    
+    
